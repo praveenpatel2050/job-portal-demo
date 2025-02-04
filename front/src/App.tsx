@@ -67,116 +67,128 @@ function App() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md"
-    >
-      <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-          Name:
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className="w-full px-3 py-2 border rounded-lg"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="mobile" className="block text-gray-700 font-bold mb-2">
-          Mobile Number:
-        </label>
-        <input
-          type="tel"
-          id="mobile"
-          name="mobile"
-          className="w-full px-3 py-2 border rounded-lg"
-          value={formData.mobile}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-          Email Id:
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          className="w-full px-3 py-2 border rounded-lg"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="skills" className="block text-gray-700 font-bold mb-2">
-          Skills:
-        </label>
-        <select
-          id="skills"
-          name="skills"
-          className="w-full px-3 py-2 border rounded-lg"
-          multiple
-          value={formData.skills}
-          onChange={handleChange}
-          required
-        >
-          <option value="react">React</option>
-          <option value="nodejs">Nodejs</option>
-          <option value="java">Java</option>
-          <option value="backend">Backend</option>
-          <option value="frontend">Frontend</option>
-          <option value="angular">Angular</option>
-          <option value="nextjs">Next Js</option>
-          <option value="devops">DevOps</option>
-          <option value="devsecops">DevSecOps</option>
-          <option value="support">Support</option>
-          <option value="tech">Tech</option>
-        </select>
-      </div>
-      <div className="mb-4">
-        <label
-          htmlFor="experience"
-          className="block text-gray-700 font-bold mb-2"
-        >
-          Total experience in years:
-        </label>
-        <input
-          type="number"
-          id="experience"
-          name="experience"
-          className="w-full px-3 py-2 border rounded-lg"
-          value={formData.experience}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="resume" className="block text-gray-700 font-bold mb-2">
-          Resume:
-        </label>
-        <input
-          type="file"
-          id="resume"
-          name="resume"
-          className="w-full px-3 py-2 border rounded-lg"
-          accept=".pdf,.doc,.docx"
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+    <>
+      <header className="text-2xl text-center font-semibold text-cyan-300 m-10"> Please Submit the Form </header>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md"
       >
-        Submit
-      </button>
-    </form>
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="w-full px-3 py-2 border rounded-lg"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="mobile"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Mobile Number:
+          </label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            className="w-full px-3 py-2 border rounded-lg"
+            value={formData.mobile}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+            Email Id:
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full px-3 py-2 border rounded-lg"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="skills"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Skills:
+          </label>
+          <select
+            id="skills"
+            name="skills"
+            className="w-full px-3 py-2 border rounded-lg"
+            multiple
+            value={formData.skills}
+            onChange={handleChange}
+            required
+          >
+            <option value="react">React</option>
+            <option value="nodejs">Nodejs</option>
+            <option value="java">Java</option>
+            <option value="backend">Backend</option>
+            <option value="frontend">Frontend</option>
+            <option value="angular">Angular</option>
+            <option value="nextjs">Next Js</option>
+            <option value="devops">DevOps</option>
+            <option value="devsecops">DevSecOps</option>
+            <option value="support">Support</option>
+            <option value="tech">Tech</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="experience"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Total experience in years:
+          </label>
+          <input
+            type="number"
+            id="experience"
+            name="experience"
+            className="w-full px-3 py-2 border rounded-lg"
+            value={formData.experience}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="resume"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Resume:
+          </label>
+          <input
+            type="file"
+            id="resume"
+            name="resume"
+            className="w-full px-3 py-2 border rounded-lg"
+            accept=".pdf,.doc,.docx"
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+        >
+          Submit
+        </button>
+      </form>
+    </>
   );
 }
 
