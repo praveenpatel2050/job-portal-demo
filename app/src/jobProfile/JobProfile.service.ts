@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { IJobProfile } from './job-profile.interface';
+import { IJobProfile } from '../model/JobProfile.model';
 
 @Injectable()
 export class JobProfileService {
