@@ -1,12 +1,12 @@
 import { Model } from 'mongoose';
 
 export interface IJobProfile {
-  name: string;
-  mobile: number;
-  email: string;
-  experience: number;
-  skills: string[];
-  resume: string;
+  name: { type: String, required: true },
+  mobile: { type: Number, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  experience: { type: Number, required: true },
+  skills: { type: [String], required: true },
+  resume: { type: String, required: true },
 }
 
 export interface IJobProfileModel extends Model<IJobProfile> {
