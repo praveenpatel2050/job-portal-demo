@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import  MongooseModule from 'mongoose';
+import {MongooseModule} from '@nestjs/mongoose';
 import { JobProfileModel } from '../model/JobProfile.model';
 import { JobProfileService } from './JobProfile.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: 'JobProfile', schema: JobProfileModel.schema }])],
+    imports: [MongooseModule.forFeature([{ name: 'JobProfile', schema: JobProfileModel}])],
     providers: [JobProfileService],
     exports: [JobProfileService],
 })
