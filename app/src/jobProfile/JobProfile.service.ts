@@ -33,4 +33,24 @@ export class JobProfileService {
     async getProfilesBySkills(skills: string[]): Promise<IJobProfile[]> {
         return this.jobProfileModel.findBySkills(skills);
     }
+
+    async findByName(name: string): Promise<IJobProfile> {
+        return this.jobProfileModel.findOne({ name }).exec();
+    }
+
+    async findByEmail(email: string): Promise<IJobProfile> {
+        return this.jobProfileModel.findOne({ email }).exec();
+    }
+
+    async findByMobile(mobile: number): Promise<IJobProfile> {
+        return this.jobProfileModel.findOne({ mobile }).exec();
+    }
+
+    async findByExperience(experience: number): Promise<IJobProfile> {
+        return this.jobProfileModel.findOne({ experience }).exec();
+    }
+
+    async findBySkills(skills: string[]): Promise<IJobProfile[]> {
+        return this.jobProfileModel.find({ skills: { $in: skills } }).exec();
+    }
 }
