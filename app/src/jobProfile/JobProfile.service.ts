@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { IJobProfile } from '../model/JobProfile.model';
+import { IJobProfile,IJobProfileModel } from '../model/JobProfile.model';
 
 @Injectable()
 export class JobProfileService {
     constructor(
-        @InjectModel('JobProfile') private readonly jobProfileModel: Model<IJobProfile>,
+        @InjectModel('JobProfile') private readonly jobProfileModel: Model<IJobProfileModel>,
     ) {}
 
-    async createJobProfile(jobData: IJobProfile): Promise<IJobProfile> {
-        const newJobProfile = new this.jobProfileModel(jobData);
-        return newJobProfile.save();
-    }
+    // async createJobProfile(jobData: IJobProfile): Promise<IJobProfile> {
+    //     const newJobProfile = new this.jobProfileModel(jobData);
+    //     return newJobProfile.save();
+    // }
 
     async getProfileByName(name: string): Promise<IJobProfile | null> {
         return this.jobProfileModel.findByName(name);
