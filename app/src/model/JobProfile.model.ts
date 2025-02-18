@@ -1,6 +1,6 @@
-import { Schema, Model, model } from 'mongoose';
+import { Document, Model, model, Schema } from 'mongoose';
 
-export interface IJobProfile {
+export interface IJobProfile extends Document {
   name: string;
   mobile: number;
   email: string;
@@ -17,7 +17,7 @@ export interface IJobProfileModel extends Model<IJobProfile> {
   findBySkills(skills: string[]): Promise<IJobProfile[]>;
 }
 
-const JobProfileSchema = new Schema<IJobProfile>({
+export const JobProfileSchema = new Schema<IJobProfile>({
   name: { type: String, required: true },
   mobile: { type: Number, required: true, unique: true },
   email: { type: String, required: true, unique: true },
@@ -27,23 +27,28 @@ const JobProfileSchema = new Schema<IJobProfile>({
 });
 
 JobProfileSchema.statics.findByName = async function (name: string) {
-  return this.findOne({ name });
+  return await this.findOne({ name });
 };
 
 JobProfileSchema.statics.findByEmail = async function (email: string) {
-  return this.findOne({ email });
+  return await this.findOne({ email });
 };
 
 JobProfileSchema.statics.findByMobile = async function (mobile: number) {
-  return this.findOne({ mobile });
+  return await this.findOne({ mobile });
 };
 
-JobProfileSchema.statics.findByExperience = async function (experience: number) {
-  return this.find({ experience });
+JobProfileSchema.statics.findByExperience = async function (
+  experience: number,
+) {
+  return await this.find({ experience });
 };
 
 JobProfileSchema.statics.findBySkills = async function (skills: string[]) {
-  return this.find({ skills: { $in: skills } });
+  return await this.find({ skills: { $in: skills } });
 };
 
-export const JobProfileModel = model<IJobProfile, IJobProfileModel>('JobProfile', JobProfileSchema);
+export const JobProfileModel = model<IJobProfile, IJobProfileModel>(
+  'JobProfile',
+  JobProfileSchema,
+);
