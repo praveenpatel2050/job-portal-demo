@@ -27,8 +27,8 @@ export class MulterMiddleware implements NestMiddleware {
                 callback(null, true);
             },
             limits: {
-                //Resume should not exceed 2MB
-                fileSize: 1024 * 1024 * 2,
+                //Resume should not exceed 5MB
+                fileSize: 1024 * 1024 * 5,
             },
         });
     }
