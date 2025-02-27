@@ -79,4 +79,25 @@ export class JobProfileService {
       .lean()
       .exec()) as unknown as IJobProfile[];
   }
+
+  async createJobProfile(
+      name: string,
+      mobile: number,
+      email: string,
+      experience: number,
+      skills: string[],
+      resume: string,
+  ) {
+    const newJobProfile = new this.jobProfileModel({
+      name,
+      mobile,
+      email,
+      experience,
+      skills,
+      resume: resume,
+    });
+
+    const result = await newJobProfile.save();
+    return result;
+  }
 }

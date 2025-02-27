@@ -1,6 +1,7 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import {Body, Controller, Get, Post, Query, Req} from '@nestjs/common';
 import { JobProfileService } from './JobProfile.service';
 import { IJobProfile } from '../model/JobProfile.model';
+import {MulterRequest} from "../utils/MulterRequest";
 
 @Controller('/job-profile')
 export class JobProfileController {
@@ -33,5 +34,28 @@ export class JobProfileController {
     @Query('skills') skills: string[],
   ): Promise<IJobProfile[]> {
     return this.jobProfileService.findBySkills(skills);
+  }
+
+  @Post('create-profile')
+  async createProfile(
+      @Body() body: { name: string; mobile: number; email: string; experience: number; skills: string[] },
+      @Req() req: MulterRequest,
+  ) {
+    const { name, mobile, email, experience, skills } = body;
+    const resume = req.file.path;
+
+    const result = await this.jobProfileService.createJobProfile(
+        name,
+        mobile,
+        email,
+        experience,
+        skills,
+        resume,
+    );
+
+    return {
+      message: 'Job profile created successfully',
+      data: result,
+    };
   }
 }
